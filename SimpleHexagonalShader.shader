@@ -17,7 +17,7 @@ Shader "Unlit/SimpleHexagonalShader"{
         }
         LOD 100
         Pass{
-            Name "Ha"
+            Name "HelloWorld"
             ZWrite On
             HLSLPROGRAM
             #pragma vertex vert
@@ -88,7 +88,7 @@ Shader "Unlit/SimpleHexagonalShader"{
                 //     case 3:return float4(1,1,0,1);
                 //     case 4:return float4(1,0,1,1);
                 //     case 5:return float4(0,1,1,1);
-                //     default:return 0;
+                //     default:return float4(0,0,0,1);
                 // }
                 float2 v2;
                 //之后改掉
