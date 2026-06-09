@@ -63,7 +63,7 @@ Shader "Unlit/SimpleHexagonalShader"{
             //f->C或者B到A的变换
             //最后A中求距离
             float2 f(float2 v){
-                return float2(0.5*v.y+v.x,0.866025*v.y);
+                return float2(0.5*v.y+v.x,0.866025*v.y);//sqrt(3)/2==0.866025
             }
             float square(float x){
                 return x*x;
@@ -74,11 +74,11 @@ Shader "Unlit/SimpleHexagonalShader"{
             float4 frag(v2f i):SV_Target{
                 float2 pos=(i.positionOS+_Offset)*_Density;
                 //
-                float2 v0=float2(pos.x-pos.y*0.577351,pos.y*1.154701);
+                float2 v0=float2(pos.x-pos.y*0.577350,pos.y*1.154701);//1/sqrt(3)==0.577350 2/sqrt(3)=1.154701
                 int2 v1=int2(floor(v0));
                 //
                 int flag;
-                int huge=12000000;
+                int huge=12000000;//很大很大的6的倍数
                 flag=((2*v1.x+(v0.x+v0.y>v1.x+v1.y+1)+v1.y*4)+huge)%6;
                 
                 // switch(flag){
